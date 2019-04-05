@@ -243,10 +243,364 @@ def issame(n):
 
 # print(list(filter(is_same,range(1000))))
 
-a = [1,6,36,666,5,3,2,2]
+# from functools import reduce
 
-print(sorted(a,reverse = True))
+# def square(n):
+#     for key,value in enumerate(n):
+#         n[key] = value**2
+#     return n
 
-a = [X+Y for X in 'ABC' for Y in "XYZ"]
-a = {x:y for x,y in zip("123",[4,5,6])}
-print(a)
+# def main():
+#     a = [1,2,3,4,5,5]
+#     print(square(a))
+#     print(reduce(lambda x, y : x * 10 + y, a))
+
+
+# if __name__ == '__main__':
+#     main(0010# import sys
+# def test():
+#     print(sys.thread_info)
+
+# def main():
+#     f = test
+#     f()
+#     print(f.__name__)
+#     print(int('100', base=2))
+
+# if __name__ == '__main__':
+#     main()abc
+
+# from functools import partial
+
+# max2 = partial(max, 10)
+# print(max2(*[1,2,3,4,5]))
+
+# class Student():
+
+#     def __init__(self, name, score, age=24,):
+#         self.name = name
+#         self.age = age
+#         self.score = score
+
+#     def show_info(self):
+#         print(self.name + ': ' + "age: " + str(self.age) + " score: " + str(self.score))
+
+# def main():
+#     stu1 = Student("zhanghan", 90)
+#     stu2 = Student("zhouyi", 95, age=18)
+#     stu1.show_info()
+#     stu2.show_info()
+
+#     a = [1,5,6,8]
+#     b = [5,6,7,9]
+#     a.extend(b)
+
+#     cnt = 5
+#     a = [0 for x in range(cnt)]
+#     print(a)
+
+
+# if __name__ == '__main__':
+# #     main()
+# class Solution:
+#     def __init__(self):
+#         pass
+#     def moveZeroes(self, nums):
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         cnt = []
+#         for key, value in enumerate(nums):
+#             if  nums[key] == 0:
+#                 cnt.append(key)
+#         for i in range(len(cnt)):
+#             nums.remove(0)
+#         nums.extend([0 for i in range(len(cnt))])
+#         return nums
+
+# s = Solution()
+# s = s.moveZeroes([0,0,5])
+# # print(s)
+
+# # for i in range(5):
+# #     print(i)
+# #     i += 2
+
+# input = '19+3-19+18='
+# a = list(range(10))
+# for i in range(len(a)):
+#     a[i] = str(a[i])
+
+# num = []
+# fox = []
+# s = ''
+# for value in input:
+#     if value not in a:
+#         num.append(s)
+#         fox.append(value)
+#         s = ''
+#     else:
+#         s += value
+
+# print(num)
+# print(fox)
+# sum = int(num[0])
+
+# for i in range(len(num)-1):
+#     fox_res = fox.pop(0)
+#     if fox_res == '+':
+#         sum += int(num[i+1])
+#     elif fox_res == '-':
+#         sum -=  int(num[i+1])
+
+# print(sum)
+
+# class Student():
+#     '''a test for class'''
+#     def __init__(self, name, age):
+#         self._name = name
+#         self.age = age
+
+#     def print_info(self):
+#         print('name is : ' + self._name + "\nage is : " + str(self.age))
+
+# class Stud(Student):
+#     '''a sub class'''
+#     def __init__(self, name, age, score):
+#         super().__init__(name, age)
+#         self._score = score
+
+#     def print_info(self):
+#         print('name is : ' + self._name + '\nscore is : ' + str(self._score) + '\nage is : ' + str(self.age))
+
+# def test(s):
+#     s.print_info()
+
+# if __name__ == '__main__':
+#     stu1 = Student("zhanghan", 25)
+#     test(stu1)
+#     stu2 = Stud("zhouyi", 21, 90)
+#     test(stu2)
+#     print(stu2._score)
+
+
+#     a = 10/0
+# except Exception as e:
+#     raise Fooerror('mather')
+# else:
+#     print('no error')
+# finally:
+#     print('finish')
+# def foo(s):
+#     n = int(s)
+#     if n==0:
+#         raise ValueError('invalid value: %s' % s)
+#     return 10 / n
+
+# def bar():
+#     try:
+#         foo('0')
+#     except ValueError as e:
+#         print('ValueError!')
+#         raise
+#     else:
+#         print('no error')
+#     finally:
+#         print('finally')
+# bar()
+
+# def fib(n):
+#     f1 = f2 = 1
+# #     for i in range(1, n):
+# #         f1, f2 = f2, f1 + f2
+# #     return f2
+
+# # print(fib(3))
+# a = [0 for i in range(26)]
+# print(len(a))
+# a = list(map(str, a))
+# print(a)
+
+# print(chr(ord('A') + 32))
+# a = {1,2,3,4,5}
+# if 3 in a:
+#     print('zz')
+
+
+# print(0 and 0)
+
+# a = {"1":2, "2":3}
+# for key in a.keys():
+#     value = 3-int(key)
+#     print(int(key))
+def twoSum(nums, target):
+    a = dict()
+    if nums == []:
+        return None
+    for i, value in enumerate(nums):
+        if value >= target:
+            continue
+        a[value] = i
+
+    for key in a.keys():
+        temp = target - key
+        if temp in a:
+            return [a[key], a[target-key]]
+
+
+# b = twoSum([3,2,4], 6)
+# print(b)
+
+# a = 'zz'
+# b = 'zz'
+# if a == b:
+#     print(123)
+# i = 0
+# for column in range(i//3*3,(i//3+1)*3):
+#     for row in range(i//3*3,(i//3+1)*3):
+#         print(row, column)
+# a = [
+#   [15,13, 2, 5],
+#   [14, 3, 4, 1],
+#   [12, 6, 8, 9],
+#   [16, 7,10,11],
+#    [16, 7,10,11]
+# ]
+# print(len(a[0]))
+# a  = [1,2,3,4,5,6,7]
+# print(a[3::-1])
+
+# import time
+# start = time.clock()
+# a = [
+#   [15,13, 2, 5],
+#   [14, 3, 4, 1],
+#   [12, 6, 8, 9],
+#   [16, 7,10,11],
+#    [16, 7,10,11]
+# ]
+# print(len(a[0]))
+# a  = [1,2,3,4,5,6,7]
+# print(a[3::-1])
+# end = time.clock()
+# # print(end-start)
+# import time
+
+# a = [i for i in range(1000000)]
+# b = list(map(str,a))
+# d = {x:y for x,y in zip(a,b)}
+
+# start = time.time()
+# 999 in a
+# end = time.time()
+# print(end-start)
+
+# start = time.clock()
+# 999 in d
+# end = time.clock()
+# print(end-start)
+
+# s = {123,345,123,456}
+# s.remove(123)
+# print(s)
+
+# s = ["h","e","l","l",'3']
+# s = s[::-1]
+
+# a = ''
+# for i in range(len(s)):
+#     a += s[i]
+
+# print(a)
+
+# a = {1,2,3,4,5}
+# b = {3,4,5,6,7}
+# a = [123]
+# print(a.extend([1,2,3,5,6]))
+# b = [1,2,3,4,5,6]
+# a = a+b
+# print(a)
+
+# a = 123
+# print(list(str(a)))
+
+# def reverse(x):
+#     l = list(str(x))
+#     l = l[::-1]
+#     if l[-1] == '-':
+#         l.pop()
+#         l.insert(0, '-')
+#     s = ''
+#     for value in l:
+#         s += value
+#     return int(s)
+
+# print(reverse(123))
+
+# def reverse(x):
+#     i, j = 0, len(x)-1
+#     while i < j:
+#         x[i], x[j] = x[j], x[i]
+#         i +=1
+#         j -=1
+#     return x
+
+# a = [1,2,3,4,5]
+# print(reverse(a))
+
+# def myAtoi(str):
+#     str = str.lstrip()
+#     if str[0] > '9' or str[0] < '0':
+#         if str[0] != '-':
+#             return 0
+
+#     i = 0
+#     while i < len(str):
+#         if str[i] == '-':
+#             i += 1
+#             continue
+#         if str[i] > '9' or str[i] < '0':
+#             str = str[:i]
+#             break
+#         i += 1
+#     return int(str)
+
+# print(myAtoi(" -4444 w"))
+# print(INT_MAX)
+
+# with open('a.txt', 'w') as f:
+#     for i in range(10):
+#         f.writelines('123\n')
+
+# with open('a.txt', 'r') as f:
+#     print(f.readlines())
+
+# import os
+# print(os.environ)
+
+# import re
+# a = 'C:\\uer\\bin'
+# print(a)
+# b = '010-1111111'
+# print(b)
+
+# print(re.findall(r"\bI","IMISS IOU"))
+
+# a = '122343243+456-789'
+# print(re.findall(r'\d+|\+|\-', a))
+
+# a = '123-1231234'
+# print(re.findall(r'\d{3}\-', a))
+
+def list_sort(lst):
+    for i in range(1,len(lst)):
+        x = lst[i]
+        j = i
+        while j > 0 and lst[j-1] > x:
+            lst[j] = lst[j-1]
+            j -= 1
+        lst[j] = x
+    return lst
+
+a = [5,54,4,6,7,8,6,4,2,5]
+print(list_sort(a))
