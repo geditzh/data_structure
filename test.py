@@ -592,15 +592,55 @@ def twoSum(nums, target):
 # a = '123-1231234'
 # print(re.findall(r'\d{3}\-', a))
 
-def list_sort(lst):
-    for i in range(1,len(lst)):
-        x = lst[i]
-        j = i
-        while j > 0 and lst[j-1] > x:
-            lst[j] = lst[j-1]
-            j -= 1
-        lst[j] = x
-    return lst
+# def list_sort(lst):
+#     for i in range(1,len(lst)):
+#         x = lst[i]
+#         j = i
+#         while j > 0 and lst[j-1] > x:
+#             lst[j] = lst[j-1]
+#             j -= 1
+#         lst[j] = x
+#     return lst
 
-a = [5,54,4,6,7,8,6,4,2,5]
-print(list_sort(a))
+# a = [5,54,4,6,7,8,6,4,2,5]
+# print(list_sort(a))
+
+# def josephus(n, k, m):
+#     person = list(range(1, n+1))
+#     i = k - 1
+#     for num in range(n):
+#         count = 0
+#         while count < m:
+#             if person[i] > 0:
+#                 count += 1
+#             if count == m:
+#                 print(person[i], end='')
+#                 person[i] = 0
+#             i = (i+1) % n
+#         if num < n - 1:
+#             print(', ', end='')
+#         else:
+#             print('')
+# def josephus1(n, k, m):
+#     person = list(range(1, n+1))
+#     num, i = n, k-1
+#     for num in range(n, 0, -1):
+#         i = (i+m-1) %  num
+#         print(person.pop(i), end=(', ' if num > 1 else '\n'))
+
+
+
+# josephus(10,2,7)
+# josephus1(10,2,7)
+
+# for i in range(0):
+#     print(i)
+
+# a = '123412341234,1234,1234+2134,2314,1234'
+# print(a.find('1234+'))
+
+
+
+def
+
+print(native_matching(a, b))
