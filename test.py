@@ -654,5 +654,5 @@ print(ord(a[0]))
 a = 'A man, a plan, a canal: Panama'
 p = re.findall(r'\w', a.lower())
 print(p)
-s = list(filter(str.isalpha, a.lower()))
+s = list(filter(str.isalnum, a.lower()))
 print(s)
