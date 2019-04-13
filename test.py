@@ -568,12 +568,12 @@ def twoSum(nums, target):
 # print(myAtoi(" -4444 w"))
 # print(INT_MAX)
 
-# with open('a.txt', 'w') as f:
-#     for i in range(10):
-#         f.writelines('123\n')
+a = ['123\n','456\n','789\n']
+with open('a.txt', 'w') as f:
+        f.writelines(a)
 
-# with open('a.txt', 'r') as f:
-#     print(f.readlines())
+with open('a.txt', 'r') as f:
+    print(f.readlines())
 
 # import os
 # print(os.environ)
@@ -587,10 +587,10 @@ def twoSum(nums, target):
 # print(re.findall(r"\bI","IMISS IOU"))
 
 # a = '122343243+456-789'
-# print(re.findall(r'\d+|\+|\-', a))
+# print(re.findall(r'\d+|\W', a))
 
-# a = '123-1231234'
-# print(re.findall(r'\d{3}\-', a))
+# a = '123-123412345'
+# print(re.findall(r'12345*', a))
 
 # def list_sort(lst):
 #     for i in range(1,len(lst)):
@@ -640,7 +640,19 @@ def twoSum(nums, target):
 # print(a.find('1234+'))
 
 
+import re
 
-def
+pattern = re.compile(r'(abc.) (abc.)')
 
-print(native_matching(a, b))
+print(re.finditer(pattern, 'abcd abcz'))
+for n in re.finditer(pattern, 'abcd abcg abct abcf'):
+    print(n.group())
+
+a = 'z23'
+print(ord(a[0]))
+
+a = 'A man, a plan, a canal: Panama'
+p = re.findall(r'\w', a.lower())
+print(p)
+s = list(filter(str.isalpha, a.lower()))
+print(s)
