@@ -94,3 +94,58 @@ print(re.findall(r'\S', '3       + 2 + 1 a + 0'))
 s = '3 + 2 + 1 +a 0'
 
 print(list(filter(str.isalnum, s)))
+
+dire = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+def mark(maze, pos):
+    maze[pos[0]][pos[1]] = 2
+
+def possible(maze, pos):
+    return maze[pos[0]][pos[1]] == 0
+
+def solve(maze, pos, end):
+    mark(maze, pos)
+    if pos == end:
+        print(pos, end=' ')
+        return True
+    for i in range(4):
+        nextp = pos[0] + dire[i][0], pos[1] + dire[i][1]
+        if possible(maze, nextp):
+            if solve(maze, nextp, end):
+                print(pos, end=' ')
+                return True
+    return False
+
+def maze_solve(maze, start, end):
+    mark(maze, start)
+    if start == end:
+        print(start)
+        return
+    st = SStack()
+    st.push((start, 0))
+    while not st.is_empty():
+        pos, nxt = st.pop()
+        for i in range(nxt, 4):
+            nextp = pos[0] + dire[i][0], pos[1] + dire[i][1]
+            if nextp == end:
+                print(nextp, end=' ')
+                print(pos, end= ' ')
+                while not st.is_empty():
+                    print(st.pop()[0], end=' ')
+                return
+            if possible(maze, nextp):
+                mark(maze, nextp)
+                st.push((pos, i+1))
+                st.push((nextp, 0))
+                break
+
+
+
+
+
+maze = [[1 for i in range(14)], [1,0,0,0,1,1,0,0,0,1,0,0,0,1], [1,0,1,0,0,0,0,1,0,1,0,1,0,1],
+         [1,0,1,0,1,1,1,1,0,1,0,1,0,1], [1,0,1,0,0,0,0,0,0,1,1,1,0,1], [1,0,1,1,1,1,1,1,1,1,0,0,0,1],
+         [1,0,1,0,0,0,0,0,0,0,0,1,0,1], [1,0,0,0,1,1,1,0,1,0,1,1,0,1], [1,0,1,0,1,0,1,0,1,0,1,0,0,1],
+         [1,0,1,0,1,0,1,0,1,1,1,1,0,1], [1,0,1,0,0,0,1,0,0,1,0,0,0,1], [1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
+
+maze_solve(maze, (1,1), (10,12))
+solve(maze, (1,1), (10,12))

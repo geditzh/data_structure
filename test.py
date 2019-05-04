@@ -671,19 +671,96 @@ with open('a.txt', 'r') as f:
 # a = [1,2,3,4,5,6,7,8,9,10]
 # calc_num(20, a, 8)
 
-def knap_rec(weight, wlist, n, a):
-    if weight < 0 or (weight > 0 and n < 1):
-        return False
-    if weight == 0:
-        return True
-    if knap_rec(weight, wlist , n-1, a):
-        return True
-    if knap_rec(weight - wlist[n-1], wlist, n-1, a):
-        a.append(wlist[n-1])
-        print('items is : ' , wlist[n-1], n-1)
-        return True
-    else:return False
+# def knap_rec(weight, wlist, n, a):
+#     if weight < 0 or (weight > 0 and n < 1):
+#         return False
+#     if weight == 0:
+#         return True
+#     if knap_rec(weight, wlist , n-1, a):
+#         return True
+#     if knap_rec(weight - wlist[n-1], wlist, n-1, a):
+#         a.append(wlist[n-1])
+#         print('items is : ' , wlist[n-1], n-1)
+#         return True
+#     else:return False
 
-a = list()
-knap_rec(20, [1,2,4,5,6,7,9,10], 9, a)
-print(a)
+# a = list()
+# knap_rec(20, [1,2,4,5,6,7,9,10], 9, a)
+# print(a)
+
+class SStack():
+    def __init__(self):
+        self._elems = list()
+
+    def is_empty(self):
+        return self._elems == []
+
+    def push(self, *elem):
+        self._elems.append(elem)
+
+    def pop(self):
+        if self._elems == []:
+            raise StackUnderFlow('in pop')
+        value = self._elems.pop()
+        return value
+
+    def top(self):
+        if self._elems == []:
+            raise StackUnderFlow('in top')
+        return self._elems[-1]
+
+
+dire = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+def mark(maze, pos):
+    maze[pos[0]][pos[1]] = 2
+
+def possible(maze, pos):
+    return maze[pos[0]][pos[1]] == 0
+
+def solve(maze, pos, end):
+    mark(maze, pos)
+    if pos == end:
+        print(pos, end=' ')
+        return True
+    for i in range(4):
+        nextp = pos[0] + dire[i][0], pos[1] + dire[i][1]
+        if possible(maze, nextp):
+            if solve(maze, nextp, end):
+                print(pos, end=' ')
+                return True
+    return False
+
+def maze_solve(maze, start, end):
+    mark(maze, start)
+    if start == end:
+        print(start)
+        return
+    st = SStack()
+    st.push(start, 0)
+    while not st.is_empty():
+        pos, nxt = st.pop()
+        for i in range(nxt, 4):
+            nextp = pos[0] + dire[i][0], pos[1] + dire[i][1]
+            if nextp == end:
+                print(nextp, end=' ')
+                print(pos, end= ' ')
+                while not st.is_empty():
+                    print(st.pop()[0], end=' ')
+                return
+            if possible(maze, nextp):
+                mark(maze, nextp)
+                st.push(pos, i+1)
+                st.push(nextp, 0)
+                break
+
+
+
+
+
+maze = [[1 for i in range(14)], [1,0,0,0,1,1,0,0,0,1,0,0,0,1], [1,0,1,0,0,0,0,1,0,1,0,1,0,1],
+         [1,0,1,0,1,1,1,1,0,1,0,1,0,1], [1,0,1,0,0,0,0,0,0,1,1,1,0,1], [1,0,1,1,1,1,1,1,1,1,0,0,0,1],
+         [1,0,1,0,0,0,0,0,0,0,0,1,0,1], [1,0,0,0,1,1,1,0,1,0,1,1,0,1], [1,0,1,0,1,0,1,0,1,0,1,0,0,1],
+         [1,0,1,0,1,0,1,0,1,1,1,1,0,1], [1,0,1,0,0,0,1,0,0,1,0,0,0,1], [1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
+
+maze_solve(maze, (1,1), (10,12))
+solve(maze, (1,1), (10,12))
