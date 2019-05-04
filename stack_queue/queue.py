@@ -81,7 +81,7 @@ class SQueue():
         self._len *= 2
         new_elems = [0] * self._len
         for i in range(old_len):
-            new_elems[i] = self._elems[(self._head+1) % old_len]
+            new_elems[i] = self._elems[(self._head+i) % old_len]
         self._elems = new_elems
         self._head = 0
 

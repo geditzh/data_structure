@@ -640,19 +640,50 @@ with open('a.txt', 'r') as f:
 # print(a.find('1234+'))
 
 
-import re
+# import re
 
-pattern = re.compile(r'(abc.) (abc.)')
+# pattern = re.compile(r'(abc.) (abc.)')
 
-print(re.finditer(pattern, 'abcd abcz'))
-for n in re.finditer(pattern, 'abcd abcg abct abcf'):
-    print(n.group())
+# print(re.finditer(pattern, 'abcd abcz'))
+# for n in re.finditer(pattern, 'abcd abcg abct abcf'):
+#     print(n.group())
 
-a = 'z23'
-print(ord(a[0]))
+# a = 'z23'
+# print(ord(a[0]))
 
-a = 'A man, a plan, a canal: Panama'
-p = re.findall(r'\w', a.lower())
-print(p)
-s = list(filter(str.isalnum, a.lower()))
-print(s)
+# a = 'A man, a plan, a canal: Panama'
+# p = re.findall(r'\w', a.lower())
+# print(p)
+# s = list(filter(str.isalnum, a.lower()))
+# print(s)
+# def calc_num(weight, wlist, n):
+#     if weight == 0:
+#         return True
+#     if weight < 0 or (weight >0 and n<1):
+#         return False
+#     if calc_num(weight-wlist[n-1], wlist, n-1):
+#         print('subnum is '+ str(n) +str(wlist[n-1]))
+#         return True
+#     if calc_num(weight, wlist, n-1):
+#         return True
+#     else: return False
+
+# a = [1,2,3,4,5,6,7,8,9,10]
+# calc_num(20, a, 8)
+
+def knap_rec(weight, wlist, n, a):
+    if weight < 0 or (weight > 0 and n < 1):
+        return False
+    if weight == 0:
+        return True
+    if knap_rec(weight, wlist , n-1, a):
+        return True
+    if knap_rec(weight - wlist[n-1], wlist, n-1, a):
+        a.append(wlist[n-1])
+        print('items is : ' , wlist[n-1], n-1)
+        return True
+    else:return False
+
+a = list()
+knap_rec(20, [1,2,4,5,6,7,9,10], 9, a)
+print(a)
