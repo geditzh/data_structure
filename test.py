@@ -770,3 +770,9 @@ from collections import Counter
 
 c = Counter('fsdgdfsgdsfgasdg')
 print(c['a'])
+
+a = [1,2,3,4,5,6,7]
+b = a
+b[0] = 10000
+print(a)
+print(-1//2)
