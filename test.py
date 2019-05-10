@@ -765,14 +765,9 @@ with open('a.txt', 'r') as f:
 # maze_solve(maze, (1,1), (10,12))
 # solve(maze, (1,1), (10,12))
 
-from functools import reduce
-from collections import Counter
+import re
 
-c = Counter('fsdgdfsgdsfgasdg')
-print(c['a'])
-
-a = [1,2,3,4,5,6,7]
-b = a
-b[0] = 10000
-print(a)
-print(-1//2)
+a = '1+2-456-345=33'
+b = a.strip()
+b = re.findall(r'\d+|\+|\-|\=', b)
+print(b)

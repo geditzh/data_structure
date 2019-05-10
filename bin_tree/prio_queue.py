@@ -57,26 +57,51 @@ class PrioQueue(object):
         for i in range(end//2-1, -1, -1):
             self.siftdown(self._elems[i], i, end)
 
-pq = PrioQueue([5,9,7,8,6,3,4,1010,-5,10])
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
-pq.dequeue()
-print(pq._elems)
+def heap_sort(elems):
+    def siftdown(elems, e, begin, end):
+        i, j = begin, 2*begin+1
+        while j < end:
+            if j+1 < end and elems[j+1] > elems[j]:
+                j +=1
+            if e > elems[j]:
+                break
+            elems[i] = elems[j]
+            i, j = j, 2*j+1
+        elems[i] = e
+
+    end = len(elems)
+    for i in range(end//2-1, -1, -1):
+        siftdown(elems, elems[i], i, end)
+    for i in range(end-1, -1, -1):
+        e = elems[i]
+        elems[i] = elems[0]
+        siftdown(elems, e, 0, i)
+    return elems
+
+a = [3,4,6,7,4,2,4,7,9,0,8,6,5,3,2,1,1,11,2223,45555]
+print(heap_sort(a))
+
+
+# pq = PrioQueue([5,9,7,8,6,3,4,1010,-5,10])
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
+# pq.dequeue()
+# print(pq._elems)
 
