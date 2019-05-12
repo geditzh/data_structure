@@ -767,7 +767,10 @@ with open('a.txt', 'r') as f:
 
 import re
 
+
 a = '1+2-456-345=33'
 b = a.strip()
 b = re.findall(r'\d+|\+|\-|\=', b)
 print(b)
+
+print('zzhzz')
