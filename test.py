@@ -765,9 +765,102 @@ with open('a.txt', 'r') as f:
 # maze_solve(maze, (1,1), (10,12))
 # solve(maze, (1,1), (10,12))
 
-import re
+# import re, operator
 
-a = '1+2-456-345=33'
-b = a.strip()
-b = re.findall(r'\d+|\+|\-|\=', b)
-print(b)
+# a = '1+2-456-345=33'
+# b = a.strip()
+# b = re.findall(r'\d+|\+|\-|\=', b)
+# print(b)
+
+# def bssearch(lst, key):
+#     low, high = 0, len(lst) - 1
+#     while low <= high:
+#         mid = low + (high - low) // 2
+#         if lst[mid] == key:
+#             return lst[mid]
+#         if lst[mid] < key:
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+#         print(low, end=' ' )
+#         print(mid, end=' ')
+#         print(high)
+#     return None
+
+# a = [1,2,3,4,5,6,7,8,9,10]
+# print(bssearch(a, 2))
+
+# class Assoc(object):
+#     def __init__(self, key, value):
+#         self.key = key
+#         self.value = value
+
+#     def __lt__(self, other):
+#         return self.key < other.key
+
+#     def __le__(self, other):
+#         return self.key <= other.key
+
+#     def __str__(self):
+#         return 'Asscos({0}, {1})'.format(self.key, self.value)
+
+# x = Assoc(7,100)
+# y = Assoc(9,200)
+# z = Assoc(5,300)
+# lst = [x, y, z]
+# lst.sort()
+# print(str(lst[0]))
+# print(len(lst))
+
+class Solution:
+    # s 源字符串
+    def replaceSpace(self, s):
+        # write code here
+        s = s.replace(' ', '%20')
+        return s
+
+if __name__ == '__main__':
+    try:
+        solu = Solution()
+        s = input()
+        print(solu.repacceSpace(s))
+    except:
+        pass
+# def sss(lst):
+#     j, n = 1, len(lst)
+#     for j in range(1, n):
+#         i = j
+#         while i > 0 and lst[i-1] > lst[i]:
+#             lst[i-1], lst[i] = lst[i], lst[i-1]
+#             i -= 1
+#     return lst
+
+# b = [1,3,5,8,5,3,65,8,0,8,7]
+# print(sss(b))
+# print(pow(256, 10))
+
+# def intersection(a, b):
+#     i, j = 0, 0
+#     res = []
+#     while i<len(a) and j < len(b):
+#         if a[i] < b[j]:
+#             i += 1
+#         elif a[i] > b[j]:
+#             j += 1
+#         else:
+#             res.append(a[i])
+#             i += 1
+#             j += 1
+#     return res
+
+
+# a = [1,2,3,4,5,6,6,7]
+# b = [1,3,5,7]
+# print(intersection(a, b))
+
+# print(hash('a'))
+# print(hash('a'))
+# print('sadf'.replace('s', 'A'))
+# print(dir(str))
+
+
