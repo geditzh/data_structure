@@ -105,13 +105,16 @@ class DictBinTree(object):
             yield t.data.key,t.data.value
             t = t.right
 
+def main():
+    a = DictBinTree()
+    x = (i for i in range(10))
+    y = (i**2 for i in range(10))
 
-a = DictBinTree()
-x = (i for i in range(10))
-y = (i**2 for i in range(10))
+    for i, j in zip(x,y):
+        a.insert(i, j)
 
-for i, j in zip(x,y):
-    a.insert(i, j)
+    for i in a.values():
+        print(i)
 
-for i in a.values():
-    print(i)
+if __name__ == '__main__':
+    main()
