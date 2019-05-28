@@ -66,12 +66,39 @@ def bubble_method(lst):
             break
     return lst
 
+def quick_sort(lst):
+    def qsort_method(lst, begin, end):
+        if begin >= end:
+            return
+        i = begin
+        j = end
+        dummy = lst[i]
+        while i < j:
+            while i < j and lst[j] > dummy:
+                j -= 1
+            if i < j:
+                lst[i] = lst[j]
+                i += 1
+            while i < j and lst[i] < dummy:
+                i += 1
+            if i < j:
+                lst[j] = lst[i]
+                j -= 1
+        lst[i] = dummy
+        qsort_method(lst, begin, i-1)
+        qsort_method(lst, i+1, end)
+
+    qsort_method(lst, 0, len(lst)-1)
+    return lst
+
+
+
 def main():
     a = [5,0,1,8,3,7,4,6]
     b = []
     for x in a:
         b.append(record(x, x))
-    for i in bubble_method(b[:]):
+    for i in quick_sort(b[:]):
         print(i.value, end='')
     for i in b:
         print(i.value, end='')
