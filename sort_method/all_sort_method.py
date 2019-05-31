@@ -91,14 +91,64 @@ def quick_sort(lst):
     qsort_method(lst, 0, len(lst)-1)
     return lst
 
+def merge_sort(lst):
+    def merge(lfrom, lto, low, mid, high):
+        i, j, k = low, mid, low
+        while i < mid and j < high:
+            if lfrom[i] <= lfrom[j]:
+                lto[k] = lfrom[i]
+                i += 1
+            else:
+                lto[k] = lfrom[j]
+                j += 1
+            k += 1
+        while i < mid:
+            lto[k] = lfrom[i]
+            i += 1
+            k += 1
+        while j < high:
+            lto[k] = lfrom[j]
+            j += 1
+            k += 1
 
+    def merge_pass(lfrom, lto, llen, slen):
+        i = 0
+        while i + 2 * slen < llen:
+            merge(lfrom, lto, i, i+slen, i+2*slen)
+            i += 2 * slen
+        if i +slen < llen:
+            merge(lfrom, lto, i, i+slen, llen)
+        else:
+            for j in range(i, llen):
+                lto[j] = lfrom[j]
+
+    slen, llen = 1, len(lst)
+    template = [None] * llen
+    while slen < llen:
+        merge_pass(lst, template, llen, slen)
+        slen *= 2
+        merge_pass(template, lst, llen, slen)
+        slen *= 2
+    return lst
+
+def shell_sort(lst):
+    n = len(lst)
+    gap = n//2
+    while gap > 0:
+        for i in range(gap, n):
+            j = i
+            while j - gap >= 0 and lst[j-gap] > lst[j]:
+                lst[j-gap], lst[j] = lst[j], lst[j-gap]
+                j -= gap
+        gap = gap // 2
+    return lst
 
 def main():
     a = [5,0,1,8,3,7,4,6]
     b = []
     for x in a:
         b.append(record(x, x))
-    for i in quick_sort(b[:]):
+    for i in shell_sort(b[:]):
         print(i.value, end='')
     for i in b:
         print(i.value, end='')

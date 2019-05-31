@@ -812,20 +812,20 @@ with open('a.txt', 'r') as f:
 # print(str(lst[0]))
 # print(len(lst))
 
-class Solution:
-    # s 源字符串
-    def replaceSpace(self, s):
-        # write code here
-        s = s.replace(' ', '%20')
-        return s
+# class Solution:
+#     # s 源字符串
+#     def replaceSpace(self, s):
+#         # write code here
+#         s = s.replace(' ', '%20')
+#         return s
 
-if __name__ == '__main__':
-    try:
-        solu = Solution()
-        s = input()
-        print(solu.repacceSpace(s))
-    except:
-        pass
+# if __name__ == '__main__':
+#     try:
+#         solu = Solution()
+#         s = input()
+#         print(solu.repacceSpace(s))
+#     except:
+#         pass
 # def sss(lst):
 #     j, n = 1, len(lst)
 #     for j in range(1, n):
@@ -864,3 +864,14 @@ if __name__ == '__main__':
 # print(dir(str))
 
 
+class Solution:
+    def Fibonacci(self, n):
+        # write code here
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        return self.Fibonacci(n-1) + self.Fibonacci(n-2)
+
+s = Solution()
+print(s.Fibonacci(9))
