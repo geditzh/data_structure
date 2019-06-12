@@ -765,12 +765,12 @@ with open('a.txt', 'r') as f:
 # maze_solve(maze, (1,1), (10,12))
 # solve(maze, (1,1), (10,12))
 
-# import re, operator
+import re, operator
 
-# a = '1+2-456-345=33'
-# b = a.strip()
-# b = re.findall(r'\d+|\+|\-|\=', b)
-# print(b)
+a = '1+2-456-345=33'
+b = a.strip()
+b = re.findall(r'\d+|\W', b)
+print(b)
 
 # def bssearch(lst, key):
 #     low, high = 0, len(lst) - 1
@@ -864,14 +864,31 @@ with open('a.txt', 'r') as f:
 # print(dir(str))
 
 
-class Solution:
-    def Fibonacci(self, n):
-        # write code here
-        if n == 0:
-            return 0
-        if n == 1:
-            return 1
-        return self.Fibonacci(n-1) + self.Fibonacci(n-2)
+# class Solution:
+#     def Fibonacci(self, n):
+#         # write code here
+#         if n == 0:
+#             return 0
+#         if n == 1:
+#             return 1
+#         return self.Fibonacci(n-1) + self.Fibonacci(n-2)
 
-s = Solution()
-print(s.Fibonacci(9))
+#     # write code here
+#     lst = []
+#     times = 0
+#     lst.append((1, number))
+#     while lst:
+#         num, number = lst.pop()
+#         if num < 2:
+#             lst.append((2, number))
+#         if number - num > 0:
+#             number = number - num
+#             lst.append((1, number))
+#         elif number - num == 0:
+#             times += 1
+#         else:
+#             pass
+#     return times
+# print(jumpFloor(5))
+
+print(bin((-3 & 0xFFFFFFFF)))
