@@ -767,11 +767,13 @@ with open('a.txt', 'r') as f:
 
 import re, operator
 
+
 a = '1+2-456-345=33'
 b = a.strip()
 b = re.findall(r'\d+|\W', b)
 print(b)
 
+<<<<<<< HEAD
 # def bssearch(lst, key):
 #     low, high = 0, len(lst) - 1
 #     while low <= high:
@@ -892,3 +894,4 @@ print(b)
 # print(jumpFloor(5))
 
 print(bin((-3 & 0xFFFFFFFF)))
+
