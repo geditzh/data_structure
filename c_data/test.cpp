@@ -3,6 +3,6 @@
 
 int main(int argc, char *argv[])
 {
-    puts("zhanghan");
+    printf("zhanghan");
     return 0;
 }
