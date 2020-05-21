@@ -138,7 +138,7 @@ def shell_sort(lst):
         for i in range(gap, n):
             j = i
             while j - gap >= 0 and lst[j-gap] > lst[j]:
-                lst[j-gap], lst[j] = lst[j], lst[j-gap]
+                lst[j-gap], t[j] = lst[j], lst[j-gap]
                 j -= gap
         gap = gap // 2
     return lst
